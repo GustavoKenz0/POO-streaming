@@ -1,5 +1,7 @@
 package br.com.streaming.financeiro;
 
+import br.com.streaming.model.Usuario;
+
 public class Assinatura {
     private int dataInicio;
     private float valor;
