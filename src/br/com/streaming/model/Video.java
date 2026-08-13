@@ -3,7 +3,7 @@ package br.com.streaming.model;
 public class Video {
     private String titulo;
     private int duracaoEmMinutos;
-<<<<<<< HEAD
+    private Categoria categoria;
     
     // TODO: Associação 1:1 - Adicionar atributo do tipo Categoria
     
@@ -11,10 +11,7 @@ public class Video {
         this.titulo = titulo;
         this.duracaoEmMinutos = duracaoEmMinutos;
     }
-    // TODO: Gerar Getters, Setters, equals(), hashCode() e toString()
-=======
-    private Categoria categoria;
-
+    
     //CONSTRUTOR
     public Video(String titulo, int duracaoEmMinutos, Categoria categoria) {
         this.titulo = titulo;
@@ -46,5 +43,48 @@ public class Video {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
->>>>>>> 53e5598c393c0dc1e46653f474fdff33a7ba9a53
+
+    //HashCode
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
+        result = prime * result + duracaoEmMinutos;
+        result = prime * result + ((categoria == null) ? 0 : categoria.hashCode());
+        return result;
+    }
+
+    //Equals
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Video other = (Video) obj;
+        if (titulo == null) {
+            if (other.titulo != null)
+                return false;
+        } else if (!titulo.equals(other.titulo))
+            return false;
+        if (duracaoEmMinutos != other.duracaoEmMinutos)
+            return false;
+        if (categoria == null) {
+            if (other.categoria != null)
+                return false;
+        } else if (!categoria.equals(other.categoria))
+            return false;
+        return true;
+    }
+
+    //toString
+    @Override
+    public String toString() {
+        return "Video [titulo=" + titulo + ", duracaoEmMinutos=" + duracaoEmMinutos + ", categoria=" + categoria + "]";
+    }
+
+
 }
